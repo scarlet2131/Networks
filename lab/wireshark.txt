@@ -1,0 +1,38 @@
+SET-A-ANSWERS
+WIRESHARK->
+
+1.
+	TCP HANDSHAKES are performed 2 times
+
+	1	51645 → 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1		SRC->10.100.1.24	DST->74.125.19.113			FLAG->0x4000
+	2	80 → 51645 [SYN, ACK] Seq=0 Ack=1 Win=5720 Len=0 MSS=1408				DST->10.100.1.24		SRC->10.0.2.3		FLAG->0x0000
+
+
+B.   the client ip address is:   src:10.100.1.24 
+				dest: 147.144.1.212
+             seq number 13 
+HTTP 484 GET /Graphics/ccsfseal.gif HTTP/1.1
+
+C.
+there are 3 http get requests in thet network 
+seq number 4,13,28
+
+d. the first http get is 4 		 src:10.100.1.24 
+dest: 74.125.19.113  HTTP 584 GET/
+
+e.
+checksum is verified 
+(correct)
+
+4500+0034=46d6
+46d6+1b79=bfd6
+bfd6+4000=ffd6
+ffd6+8006=17fdc
+17fdc+df41=25f1d
+25f1d=5f1d+2=5f1f
+5f1f+0a64=6983
+6983+0118=6A9b
+6a9b+9390=fe2b
+fe2b+01d4=ffff(correct)
+
+	

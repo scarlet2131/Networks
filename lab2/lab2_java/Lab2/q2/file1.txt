@@ -1,0 +1,5 @@
+Metallurgy 3
+Chemistry 3
+Robotics 1
+HR 2
+Communication 4

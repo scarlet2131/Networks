@@ -1,0 +1,8 @@
+Rohit 10000 Metallurgy
+Sandeep 8000 Chemistry
+Sumit 12000 Robotics
+Ankur 20000 Chemistry
+Gagan 29000 Communication
+Sangam 15000 Chemistry
+Soumitra 6000 Metallurgy
+Subhashis 9000 HR

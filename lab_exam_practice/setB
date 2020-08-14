@@ -1,0 +1,34 @@
+SET-B-ANSWERS
+WIRESHARK->
+
+1.
+	34	2012-10-08 10:09:52.980153	10.0.2.3	63.241.108.124	HTTP
+	BROWSER->HTTP/1.1 (GET)
+	SERVER->HTTP/1.1 	(OK)
+
+2.
+	FROM TCP PACKET->
+	MAC Address: IntelCor (8c:a9:82:50:f0:a6)		IP->10.0.2.3		(SRC-ROUTER)
+	MAC Address: Apple (00:26:08:e5:66:07)			IP->192.122.184.80	(DST-ROUTER)
+3.
+	TCP HANDSHAKES are performed 3 times
+
+	30	55571 → 80 [SYN] Seq=0 Win=8192 Len=0 MSS=1460 WS=256 SACK_PERM=1		SRC->10.0.2.3	DST->63.241.108.124			FLAG->0x002
+	32	80 → 55571 [SYN, ACK] Seq=0 Ack=1 Win=8192 Len=0 MSS=1460				DST->63.241.108.124		SRC->10.0.2.3		FLAG->0x0012
+	33	55571 → 80 [ACK] Seq=1 Ack=1 Win=64240 Len=0							SRC->10.0.2.3	DST->63.241.108.124			FLAG->0x0010
+
+	
+
+	
+4.  No this IP datagram hasn't been fragmented.
+	The TCP packets captured are having different IDENTIFICATION fields with FLAG as 0x02(DF) and FRAGMENT OFFSET as 0.
+	If however there had been any fragmentation then IDENTIFICATION fields would have been same and FLAG would be MF(More fragments to come).
+
+	Verified on SHEET
+	for HTTP PACKET->SNO-34,35
+	By enabling verification->
+	Checksum: 0x322b [correct]
+	[Calculated Checksum: 0x322b]
+	[Checksum Status: Good]
+
+

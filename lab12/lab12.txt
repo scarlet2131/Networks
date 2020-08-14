@@ -1,0 +1,62 @@
+//lab 12
+
+by monisha ranjan
+roll no-1701037
+
+
+	1.  Source: 64.233.169.104(confirmed with ip addr show and serial number 126)
+	  	Destination: 192.168.1.100
+
+2. Does the Total Length field include the IP header plus IP payload, or just the IP
+payload?
+	 Yes, ip header and payload
+	  Total Length: 298
+	  Header Length: 20 bytes (5) 
+	  Tcp header : 20 bytes
+	  Tcp payload : 258 bytes
+	  Total : 298 bytes
+
+3. How does the value of the Identification field change or stay the same for different
+packets? For instance, does it hold the same value for all packets in a TCP connection or
+does it differ for each packet? Is it the same in both directions? Can you see any pattern if
+the value does change?
+	  No. different fragments belonging to the same IPv4 packet are identified by having "the same" "identification" value.
+	  The values are not same in both direction.
+	  The values change they are incrementing.
+
+4. What is the initial value of the TTL field for packets sent from your computer? Is it the
+maximum possible value, or some lower value?
+	   maximum TTL value is 255
+	   Time to live: 50
+
+
+5. How can you tell from looking at a packet that it has not been fragmented? Most often
+IP packets in normal operation are not fragmented. But the receiver must have a way to be
+sure. Hint: you may need to read your text to confirm a guess.
+  	 .1.. .... .... .... = Don't fragment: Set
+
+6. What is the length of the IP Header and how is this encoded in the header length field?
+Hint: notice that only 4 bits are used for this field, as the version takes up the other 4 bits of
+the byte. You may guess and check your text.
+
+
+	By enabling verification->
+	Checksum: 0xd079 [correct]
+	[Calculated Checksum: 0xd079]
+	[Checksum Status: Good]
+
+	header checksum 
+	4520+012a=464a
+	464a+0ad7=5121
+	5121+0000=5121
+	5121+3206=8327
+	8327+d079=153a0
+	153a0=53a0+1=53a1(when bits increased from 4 to 5)
+	53a1+40e9=948a
+	948a+a968=13df2
+	13df2=3df2+1=3df3(when bits increased from 4 to 5)
+	3df3+c0a8=fe9b
+	fe9b+0164=ffff(correct)
+
+
+
